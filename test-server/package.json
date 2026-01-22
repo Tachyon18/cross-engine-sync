@@ -1,0 +1,22 @@
+{
+  "name": "cross-engine-tcp-server",
+  "version": "1.0.0",
+  "description": "TCP Server for Unreal-Unity Cross-Engine Communication",
+  "main": "tcp-server.js",
+  "scripts": {
+    "start": "node tcp-server.js",
+    "dev": "nodemon tcp-server.js"
+  },
+  "keywords": [
+    "tcp",
+    "unreal",
+    "unity",
+    "networking",
+    "game-development"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}
