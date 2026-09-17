@@ -344,7 +344,7 @@ function broadcastMessage(message, sender) {
 
     const normalizedMsg = normalizeMessage(message);
 
-    const json = JSON.stringify(normalizeMessage);
+    const json = JSON.stringify(normalizedMsg);
     const data = Buffer.from(json + '\n');
     
     // 통계 업데이트

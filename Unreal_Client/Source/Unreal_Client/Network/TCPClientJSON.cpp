@@ -305,19 +305,21 @@ void ATCPClientJSON::ProcessMessage(const FString& JsonString)
 
     if (!FJsonSerializer::Deserialize(Reader, JsonObject) || !JsonObject.IsValid())
     {
-        LogMessage(TEXT("Failed to parse JSON"), true);
+        LogMessage(FString::Printf(TEXT("Failed to parse JSON. Raw (%d chars): [%s]"),
+            JsonString.Len(), *JsonString), true);
         return;
     }
 
     FString MessageType = JsonObject->GetStringField(TEXT("type"));
 
-    LogMessage(FString::Printf(TEXT("Received: %s"), *MessageType));
-
     const TSharedPtr<FJsonObject>* DataObject;
     if (!JsonObject->TryGetObjectField(TEXT("data"), DataObject))
     {
+        LogMessage(FString::Printf(TEXT("Received '%s' but 'data' field missing/invalid"), *MessageType), true);
         return;
     }
+
+    LogMessage(FString::Printf(TEXT("Received: %s"), *MessageType));
 
     if (MessageType == TEXT("position_update"))
     {

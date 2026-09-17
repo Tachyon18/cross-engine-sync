@@ -45,7 +45,7 @@ public:
 
     // 전송 설정
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Network Test|Settings")
-    float PositionUpdateInterval = 0.1f;  // 위치 업데이트 간격 (초)
+    float PositionUpdateInterval = 1.0f;  // 위치 업데이트 간격 (초)
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Network Test|Settings")
     float ColorChangeInterval = 2.0f;     // 색상 변경 간격 (초)
